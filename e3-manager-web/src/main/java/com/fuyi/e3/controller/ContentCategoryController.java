@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fuyi.e3.common.EasyUIResult;
-import com.fuyi.e3.common.EasyUITreeNode;
+import com.fuyi.e3.common.vo.EasyUIResult;
+import com.fuyi.e3.common.vo.EasyUITreeNode;
 import com.fuyi.e3.service.ContentCategoryService;
 
 @Controller

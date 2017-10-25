@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fuyi.e3.common.EasyUIResult;
+import com.fuyi.e3.common.vo.EasyUIResult;
 import com.fuyi.e3.mapper.TbItemMapper;
 import com.fuyi.e3.pojo.TbItem;
 import com.fuyi.e3.pojo.TbItemExample;

@@ -2,8 +2,8 @@ package com.fuyi.e3.service;
 
 import java.util.List;
 
-import com.fuyi.e3.common.EasyUIResult;
-import com.fuyi.e3.common.EasyUITreeNode;
+import com.fuyi.e3.common.vo.EasyUIResult;
+import com.fuyi.e3.common.vo.EasyUITreeNode;
 
 /**
  * 内容管理分类service

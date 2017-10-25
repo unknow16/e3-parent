@@ -1,4 +1,4 @@
-package com.fuyi.e3.common;
+package com.fuyi.e3.common.vo;
 
 import java.io.Serializable;
 import java.util.List;

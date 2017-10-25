@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+	<!-- 配置单机redisPool 
+		final GenericObjectPoolConfig poolConfig, final String host, int port,
+      int timeout, final String password
+      -->
+	<bean id="poolConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig"/>
+	<bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+		<constructor-arg name="poolConfig" ref="poolConfig"/>
+		<constructor-arg name="host" value="192.168.0.109"/>
+		<constructor-arg name="port" value="6379"/>
+		<constructor-arg name="timeout" value="300000"/>
+		<constructor-arg name="password" value="root"/>
+	</bean> 
+	
+	
+	<!-- 单机实现工具类 -->
+	<bean id="jedisClientPool" class="com.fuyi.e3.common.jedis.impl.JedisClientPool"/>
+	
+	
+	<!-- 配置集群redisCluster 
+	<bean id="jedisCluster" class="redis.clients.jedis.JedisCluster">
+		<constructor-arg name="nodes">
+			<set>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="192.168.0.109"/>
+					<constructor-arg name="port" value="6379"/>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="192.168.0.110"/>
+					<constructor-arg name="port" value="6379"/>
+				</bean>
+			</set>
+		</constructor-arg>
+	</bean>-->
+	<!-- 集群实现工具类 
+	<bean id="jedisClientCluster" class="com.fuyi.e3.common.jedis.impl.JedisClientCluster"/>-->
+	
+</beans>

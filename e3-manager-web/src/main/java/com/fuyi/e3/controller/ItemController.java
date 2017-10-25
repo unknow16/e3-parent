@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fuyi.e3.common.EasyUIResult;
+import com.fuyi.e3.common.vo.EasyUIResult;
 import com.fuyi.e3.pojo.TbItem;
 import com.fuyi.e3.service.ItemService;
 

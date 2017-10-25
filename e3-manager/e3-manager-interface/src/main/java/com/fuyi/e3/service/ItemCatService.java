@@ -2,7 +2,7 @@ package com.fuyi.e3.service;
 
 import java.util.List;
 
-import com.fuyi.e3.common.EasyUITreeNode;
+import com.fuyi.e3.common.vo.EasyUITreeNode;
 
 /**
  * 商品类目service

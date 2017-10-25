@@ -1,6 +1,6 @@
 package com.fuyi.e3.service;
 
-import com.fuyi.e3.common.EasyUIResult;
+import com.fuyi.e3.common.vo.EasyUIResult;
 import com.fuyi.e3.pojo.TbItem;
 
 /**
