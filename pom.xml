@@ -5,10 +5,11 @@
 	<artifactId>e3-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	
+
 	<modules>
 		<module>e3-common</module>
 		<module>e3-manager</module>
+		<module>e3-manager-web</module>
 	</modules>
 
 	<!-- 集中定义依赖版本号 -->
@@ -165,6 +166,12 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context-support</artifactId>
 				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+				<scope>test</scope>
 			</dependency>
 			<!-- JSP相关 -->
 			<dependency>

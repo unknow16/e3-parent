@@ -1,7 +1,11 @@
 package com.fuyi.e3.pojo;
 
-public class TbOrderItem {
-    private String id;
+import java.io.Serializable;
+
+public class TbOrderItem implements Serializable {
+	private static final long serialVersionUID = 8871235107233508392L;
+
+	private String id;
 
     private String itemId;
 

@@ -1,9 +1,12 @@
 package com.fuyi.e3.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbOrderShipping {
-    private String orderId;
+public class TbOrderShipping implements Serializable {
+	private static final long serialVersionUID = 7812091535173006783L;
+
+	private String orderId;
 
     private String receiverName;
 

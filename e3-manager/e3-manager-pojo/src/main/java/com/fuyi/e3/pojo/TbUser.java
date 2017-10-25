@@ -1,9 +1,12 @@
 package com.fuyi.e3.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbUser {
-    private Long id;
+public class TbUser implements Serializable {
+	private static final long serialVersionUID = -4642641972931196576L;
+
+	private Long id;
 
     private String username;
 
