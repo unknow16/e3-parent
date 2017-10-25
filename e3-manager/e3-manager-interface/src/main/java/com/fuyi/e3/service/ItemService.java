@@ -3,6 +3,11 @@ package com.fuyi.e3.service;
 import com.fuyi.e3.common.EasyUIResult;
 import com.fuyi.e3.pojo.TbItem;
 
+/**
+ * 商品管理service
+ * @author Administrator
+ *
+ */
 public interface ItemService {
 
 	/**
@@ -19,4 +24,5 @@ public interface ItemService {
 	 * @return
 	 */
 	public EasyUIResult getItemList(Integer page, Integer rows);
+	
 }

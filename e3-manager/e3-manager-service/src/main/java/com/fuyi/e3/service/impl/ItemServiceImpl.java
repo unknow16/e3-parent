@@ -38,5 +38,4 @@ public class ItemServiceImpl implements ItemService {
 		result.setTotal(pageInfo.getTotal());
 		return result;
 	}
-
 }

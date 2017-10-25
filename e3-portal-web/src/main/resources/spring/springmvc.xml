@@ -10,8 +10,6 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-
-
 	<mvc:annotation-driven />
 	<context:component-scan base-package="com.fuyi.e3.controller" />
 	
@@ -23,10 +21,10 @@
 	<!-- 由于springmvc拦截的是/ 所以也拦截了 静态资源 映射 -->
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
 	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
+	<mvc:resources location="/WEB-INF/images/" mapping="/images/**"/>
 	
 	<dubbo:application name="e3-manager-web"/>
 	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"/>
-	<dubbo:reference id="itemService" interface="com.fuyi.e3.service.ItemService"/>
-	<dubbo:reference id="itemCatService" interface="com.fuyi.e3.service.ItemCatService"/>
-	<dubbo:reference id="contentCategoryService" interface="com.fuyi.e3.service.ContentCategoryService"/>
+<!-- 	<dubbo:reference id="itemService" interface="com.fuyi.e3.service.ItemService"/>
+	<dubbo:reference id="itemCatService" interface="com.fuyi.e3.service.ItemCatService"/> -->
 </beans>
