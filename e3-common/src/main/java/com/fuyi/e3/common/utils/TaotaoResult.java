@@ -1,5 +1,6 @@
 package com.fuyi.e3.common.utils;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -8,9 +9,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * 淘淘商城自定义响应结构
  */
-public class TaotaoResult {
+public class TaotaoResult implements Serializable {
 
-    // 定义jackson对象
+	private static final long serialVersionUID = -8111759297226605098L;
+
+	// 定义jackson对象
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     // 响应业务状态

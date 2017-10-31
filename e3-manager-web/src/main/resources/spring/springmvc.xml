@@ -29,4 +29,5 @@
 	<dubbo:reference id="itemService" interface="com.fuyi.e3.service.ItemService"/>
 	<dubbo:reference id="itemCatService" interface="com.fuyi.e3.service.ItemCatService"/>
 	<dubbo:reference id="contentCategoryService" interface="com.fuyi.e3.service.ContentCategoryService"/>
+	<dubbo:reference id="searchItemService" interface="com.fuyi.e3.search.service.SearchItemService"></dubbo:reference>
 </beans>
