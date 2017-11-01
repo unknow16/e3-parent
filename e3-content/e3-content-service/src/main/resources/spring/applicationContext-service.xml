@@ -22,5 +22,5 @@
 	<!-- 用dubbo协议在20880端口暴露服务 -->
 	<dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
 	<!-- 声明需要暴露的服务接口  ref中的itemServiceImpl是注解@service加到容器中的-->
-    <dubbo:service interface="com.fuyi.e3.service.ContentCategoryService" ref="contentCategoryServiceImpl"></dubbo:service>
+    <dubbo:service interface="com.fuyi.e3.service.ContentCategoryService" ref="contentCategoryServiceImpl" timeout="300000"></dubbo:service>
 </beans>
