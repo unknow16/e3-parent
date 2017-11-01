@@ -1,5 +1,6 @@
 package com.fuyi.e3.service;
 
+import com.fuyi.e3.common.utils.TaotaoResult;
 import com.fuyi.e3.common.vo.EasyUIResult;
 import com.fuyi.e3.pojo.TbItem;
 
@@ -25,4 +26,11 @@ public interface ItemService {
 	 */
 	public EasyUIResult getItemList(Integer page, Integer rows);
 	
+	/**
+	 * 添加商品
+	 * @param item
+	 * @param desc
+	 * @return
+	 */
+	public TaotaoResult addItem(TbItem item, String desc);
 }

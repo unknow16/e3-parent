@@ -3,7 +3,6 @@ package com.fuyi.e3.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,9 +57,9 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 		
 		//*********************读取缓存  ********** 对内容信息做增删改操作后只需要把对应缓存删除即可。
 		String json = jedisClientPool.hget("CONTENT_KEY", categoryId + "");
-		if(StringUtils.isNotBlank(json)) {
-			EasyUIResult result = JsonUtils.jsonToPojo(json, EasyUIResult.class);
-			return result;
+		if(json != null && json != "") {
+			EasyUIResult result1 = JsonUtils.jsonToPojo(json, EasyUIResult.class);
+			return result1;
 		}
 		//*********************
 		

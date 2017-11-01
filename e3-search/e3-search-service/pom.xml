@@ -26,6 +26,12 @@
 			<groupId>org.apache.solr</groupId>
 			<artifactId>solr-solrj</artifactId>
 		</dependency>
+		
+		<!-- active MQ -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
+		</dependency>
 
 		<!-- Redis客户端 -->
 		<dependency>
@@ -91,24 +97,24 @@
 			<artifactId>zkclient</artifactId>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-            <resource>
-            	<directory>src/main/resources</directory>
-            	<includes>
-            		<include>**/*.properties</include>
-                    <include>**/*.xml</include>
-            	</includes>
-            </resource>
-        </resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
 	</build>
 </project>

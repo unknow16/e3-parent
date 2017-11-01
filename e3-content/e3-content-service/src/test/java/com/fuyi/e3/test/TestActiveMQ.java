@@ -34,7 +34,7 @@ public class TestActiveMQ {
             @Override
             public Message createMessage(Session session) throws JMSException {
 
-                TextMessage textMessage = session.createTextMessage("hellow8888");
+                TextMessage textMessage = session.createTextMessage("hello234");
                 return textMessage;
             }
         });
@@ -45,7 +45,7 @@ public class TestActiveMQ {
         jmsTemplate.send(activeMQTopic, new MessageCreator() {
             @Override
             public Message createMessage(Session session) throws JMSException {
-                TextMessage textMessage = session.createTextMessage("hellow12222");
+                TextMessage textMessage = session.createTextMessage("hellow topic");
                 return textMessage;
             }
         });

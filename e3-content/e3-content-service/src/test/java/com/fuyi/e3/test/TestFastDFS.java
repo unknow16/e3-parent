@@ -25,6 +25,8 @@ public class TestFastDFS {
         for (String string: strings ) {
             System.out.println(string);
         }
+        
+        //图片路径 http://192.168.25.133/group1/M00/00/00/wKgZhVn5dveAJ-UNAAAqOrDOfCE744.jpg
     }
 
     @Test

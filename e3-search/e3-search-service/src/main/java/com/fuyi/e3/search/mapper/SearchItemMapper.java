@@ -7,4 +7,5 @@ import com.fuyi.e3.common.vo.SearchItem;
 public interface SearchItemMapper {
 
 	List<SearchItem> getItemList();
+	SearchItem getItemById(Long itemId);
 }

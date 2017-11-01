@@ -84,4 +84,22 @@ public class SearchItemServiceImpl implements SearchItemService {
 		return result;
 	}
 
+	@Override
+	public TaotaoResult addDocument(Long itemId) throws Exception {
+		SearchItem searchItem = searchItemMapper.getItemById(itemId);
+		
+		SolrInputDocument document = new SolrInputDocument();
+		document.addField("id", searchItem.getId());
+		document.addField("item_title", searchItem.getTitle());
+		document.addField("item_sell_point", searchItem.getSell_point());
+		document.addField("item_price", searchItem.getPrice());
+		document.addField("item_image", searchItem.getImage());
+		document.addField("item_category_name", searchItem.getCategory_name());
+
+		solrServer.add(document);
+		solrServer.commit();
+		
+		return TaotaoResult.ok();
+	}
+
 }
