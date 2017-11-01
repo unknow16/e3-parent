@@ -24,10 +24,18 @@
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
 	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
 	
+	<!-- 定义文件上传解析器 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设定默认编码 -->
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<!-- 设定文件上传的最大值5M, 5*1024*1024 -->
+		<property name="maxUploadSize" value="5242880"></property>
+	</bean>
+	
 	<dubbo:application name="e3-manager-web"/>
 	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"/>
 	<dubbo:reference id="itemService" interface="com.fuyi.e3.service.ItemService"/>
 	<dubbo:reference id="itemCatService" interface="com.fuyi.e3.service.ItemCatService"/>
 	<dubbo:reference id="contentCategoryService" interface="com.fuyi.e3.service.ContentCategoryService"/>
-	<dubbo:reference id="searchItemService" interface="com.fuyi.e3.search.service.SearchItemService"></dubbo:reference>
+	<dubbo:reference id="searchItemService" interface="com.fuyi.e3.search.service.SearchItemService"/>
 </beans>

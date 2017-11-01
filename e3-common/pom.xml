@@ -10,6 +10,11 @@
 	<artifactId>e3-common</artifactId>
 
 	<dependencies>
+		<!-- fastDfs client -->
+		<dependency>
+			<groupId>fastdfs_client</groupId>
+			<artifactId>fastdfs_client</artifactId>
+		</dependency>
 		<!-- 时间操作组件 -->
 		<dependency>
 			<groupId>joda-time</groupId>
@@ -27,6 +32,11 @@
 		<dependency>
 			<groupId>commons-net</groupId>
 			<artifactId>commons-net</artifactId>
+		</dependency>
+		<!-- 文件上传组件 -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
 		</dependency>
 		<!-- Jackson Json处理工具包 -->
 		<dependency>

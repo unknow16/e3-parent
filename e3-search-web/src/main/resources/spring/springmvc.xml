@@ -19,6 +19,9 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<!-- 全局异常处理器 只需实现HandlerExceptionResolver,然后配置在此bean -->
+	<bean class="com.fuyi.e3.search.exception.GlobalExceptionReslover"></bean>
+	
 	<!-- 由于springmvc拦截的是/ 所以也拦截了 静态资源 映射 -->
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
 	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
@@ -26,5 +29,5 @@
 	
 	<dubbo:application name="e3-portal-web"/>
 	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"/>
-	<dubbo:reference id="searchItemService" interface="com.fuyi.e3.search.service.SearchItemService"/>
+	<dubbo:reference id="searchItemService" interface="com.fuyi.e3.search.service.SearchItemService" timeout="300000"/>
 </beans>

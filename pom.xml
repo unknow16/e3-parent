@@ -46,9 +46,16 @@
 		<activemq.version>5.11.2</activemq.version>
 		<freemarker.version>2.3.23</freemarker.version>
 		<quartz.version>2.2.2</quartz.version>
+		<fastdfsclient.version>1.25</fastdfsclient.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
+			<!-- fastDfs client -->
+			<dependency>
+				<groupId>fastdfs_client</groupId>
+				<artifactId>fastdfs_client</artifactId>
+				<version>${fastdfsclient.version}</version>
+			</dependency>
 			<!-- 时间操作组件 -->
 			<dependency>
 				<groupId>joda-time</groupId>

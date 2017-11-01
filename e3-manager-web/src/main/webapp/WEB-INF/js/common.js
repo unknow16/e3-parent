@@ -63,7 +63,7 @@ var E3 = {
     	this.initItemCat(data);
     },
     // 初始化图片上传组件
-    initPicUpload : function(data){
+    initPicUpload : function(data){    //i:迭代索引    e:this（dom元素）
     	$(".picFileUpload").each(function(i,e){
     		var _ele = $(e);
     		_ele.siblings("div.pics").remove();
