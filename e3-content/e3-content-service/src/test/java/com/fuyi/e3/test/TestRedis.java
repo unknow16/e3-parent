@@ -18,7 +18,7 @@ import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.JedisPool;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:spring/applicationContext-*.xml"})
+@ContextConfiguration(locations={"classpath:spring/applicationContext-redis.xml"})
 public class TestRedis {
 	
 	@Resource
@@ -30,10 +30,15 @@ public class TestRedis {
 	
 	@Test
 	public void testJedisSingle() {
-		Jedis jedis = new Jedis("192.168.0.109", 6379);
-		jedis.auth("root");
-		String s = jedis.hget("client_user_tokenId", "a9fcb504603141e0bcd6a541b6e9d0d4");
-		System.out.println(s);
+		Jedis jedis = new Jedis("192.168.25.128", 6379);
+		//jedis.auth("root");
+		//String s = jedis.hget("client_user_tokenId", "a9fcb504603141e0bcd6a541b6e9d0d4");
+		//System.out.println(s);
+		jedis.set("ITEM_INFO:123456:BASE", "base1");
+		jedis.set("ITEM_INFO:123456:DESC", "desc1");
+		
+		jedis.set("ITEM_INFO:223456:BASE", "base2");
+		jedis.set("ITEM_INFO:223456:DESC", "desc2");
 		jedis.close();
 	}
 	

@@ -3,6 +3,7 @@ package com.fuyi.e3.service;
 import com.fuyi.e3.common.utils.TaotaoResult;
 import com.fuyi.e3.common.vo.EasyUIResult;
 import com.fuyi.e3.pojo.TbItem;
+import com.fuyi.e3.pojo.TbItemDesc;
 
 /**
  * 商品管理service
@@ -17,6 +18,8 @@ public interface ItemService {
 	 * @return
 	 */
 	public TbItem getItemById(Long itemId);
+	
+	public TbItemDesc getItemDescById(Long itemId);
 	
 	/**
 	 * 分页查询商品

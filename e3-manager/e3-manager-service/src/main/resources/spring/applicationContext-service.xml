@@ -13,6 +13,7 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
+	<context:property-placeholder location="classpath:conf/*.properties"/>
 	<context:component-scan base-package="com.fuyi.e3.service"/>
 	
 	<!-- 使用dubbo发布服务 -->
@@ -22,6 +23,6 @@
 	<!-- 用dubbo协议在20880端口暴露服务 -->
 	<dubbo:protocol name="dubbo" port="20881"></dubbo:protocol>
 	<!-- 声明需要暴露的服务接口  ref中的itemServiceImpl是注解@service加到容器中的-->
-	<dubbo:service interface="com.fuyi.e3.service.ItemService" ref="itemServiceImpl"></dubbo:service>
+	<dubbo:service interface="com.fuyi.e3.service.ItemService" ref="itemServiceImpl"/>
 	<dubbo:service interface="com.fuyi.e3.service.ItemCatService" ref="itemCatServiceImpl"/>
 </beans>

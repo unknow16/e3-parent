@@ -49,8 +49,8 @@
          <li>
             <div class="l-wrap">
 				<div class="pic">
-					<a class="trackref" href="http://localhost:8086/item/${item.id}.html" title="" target="_blank">
-						<img src="" style="display:inline"/>
+					<a class="trackref" href="http://localhost:8066/item/${item.id}.html" title="" target="_blank">
+						<img src="${item.image }" style="display:inline"/>
 					</a>
 				</div>
 	            <div class="price">

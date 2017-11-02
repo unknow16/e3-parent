@@ -14,7 +14,9 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
+import com.fuyi.e3.common.jedis.impl.JedisClientPool;
 import com.fuyi.e3.common.utils.IDUtils;
+import com.fuyi.e3.common.utils.JsonUtils;
 import com.fuyi.e3.common.utils.TaotaoResult;
 import com.fuyi.e3.common.vo.EasyUIResult;
 import com.fuyi.e3.mapper.TbItemDescMapper;
@@ -41,9 +43,48 @@ public class ItemServiceImpl implements ItemService {
 	@Autowired
 	private Destination topicDestination;
 	
+	@Autowired
+	private JedisClientPool jedisClientPool;
+	
+	/*@Value("${ITEM_INFO_PRE}")*/
+	private String ITEM_INFO_PRE = "ITEM_INFO";
+	
+	/*@Value("${ITEM_INFO_EXPIRE}")*/
+	private Integer ITEM_INFO_EXPIRE = 30000;
+	
 	@Override
 	public TbItem getItemById(Long itemId) {
-		return itemMapper.selectByPrimaryKey(itemId);
+		TbItem item = null;
+		//读缓存，存在返回，不存在查数据库
+		String json = jedisClientPool.get(ITEM_INFO_PRE + ":" + itemId + ":BASE");
+		if(json != null && !"".equals(json)) {
+			item = JsonUtils.jsonToPojo(json, TbItem.class);
+			return item;
+		}
+		
+		//查数据库
+		item = itemMapper.selectByPrimaryKey(itemId);
+		
+		//存入缓存
+		jedisClientPool.set(ITEM_INFO_PRE + ":" + itemId + ":BASE", JsonUtils.objectToJson(item));
+		jedisClientPool.expire(ITEM_INFO_PRE + ":" + itemId + ":BASE", ITEM_INFO_EXPIRE);
+		return item;
+	}
+	
+	@Override
+	public TbItemDesc getItemDescById(Long itemId) {
+		TbItemDesc itemDesc = null;
+		String json = jedisClientPool.get(ITEM_INFO_PRE + ":" + itemId + ":DESC");
+		if(json != null && !"".equals(json)) {
+			itemDesc = JsonUtils.jsonToPojo(json, TbItemDesc.class);
+			return itemDesc;
+		}
+		
+		itemDesc = itemDescMapper.selectByPrimaryKey(itemId);
+		
+		jedisClientPool.set(ITEM_INFO_PRE + ":" + itemId + ":DESC", JsonUtils.objectToJson(itemDesc));
+		jedisClientPool.expire(ITEM_INFO_PRE + ":" + itemId + ":DESC", ITEM_INFO_EXPIRE);
+		return itemDesc;
 	}
 
 	@Override
@@ -96,6 +137,7 @@ public class ItemServiceImpl implements ItemService {
 		
 		return TaotaoResult.ok();
 	}
+
 	
 	
 }
