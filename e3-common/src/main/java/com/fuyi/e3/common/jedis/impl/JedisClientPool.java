@@ -27,6 +27,15 @@ public class JedisClientPool implements JedisClient {
 		jedis.close();
 		return result;
 	}
+	
+	//The command returns the number of keys removed.
+	@Override
+	public Long del(String key) {
+		Jedis jedis = jedisPool.getResource();
+		Long keyId = jedis.del(key);
+		jedis.close();
+		return keyId;
+	}
 
 	@Override
 	public Boolean exists(String key) {
